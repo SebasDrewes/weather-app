@@ -22,6 +22,7 @@ const weather = async (city) => {
   console.log('///////////////////');
   console.log('///////////////////');
   console.log('datos actuales');
+  console.log(getData.name);
   console.log(traducirMain(getData.weather[0].main));
   console.log(getData.weather[0].description);
   console.log('temperatura');
@@ -139,7 +140,6 @@ const weather = async (city) => {
   console.log('///////////////////');
   console.log('///////////////////');
   console.log('informe semanal');
-  console.log(getMoreData);
   console.log((new Date(getMoreData.daily[1].dt * 1000)).toLocaleString('default', { weekday: 'long' }));
   console.log(getMoreData.daily[1].weather[0].main);
   console.log(`probabilidad de lluvia: ${Math.round(getMoreData.daily[1].pop * 100)}%`);
@@ -183,4 +183,10 @@ const weather = async (city) => {
   console.log(`Temperatura Max ${Math.round(getMoreData.daily[7].temp.max)}°`);
   console.log(`Temperatura Min ${Math.round(getMoreData.daily[7].temp.min)}°`);
 };
-weather('buenos+aires');
+const buscar = document.querySelector('#buscar');
+const city = document.querySelector('#city');
+buscar.addEventListener('click', () => {
+  const cityToSearch = city.value;
+  const cityValue = cityToSearch.replace(' ', '+');
+  weather(cityValue);
+});
