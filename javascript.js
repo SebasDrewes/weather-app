@@ -1,36 +1,56 @@
 const weather = async (city) => {
+  // def elementos DOM
+  const cityName = document.querySelector('#cityName');
+  const weatherStatusMain = document.querySelector('#weatherStatusMain');
+  const temperaturaMain = document.querySelector('#temperaturaMain');
+  const tempMaxMinMain = document.querySelector('#tempMaxMinMain');
+  const temperaturaMainIcon = document.querySelector('#temperaturaMainIcon');
+  //
   const getWeather = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=es&APPID=e6d7d470999d1a5432119e29077faf4d`, { mode: 'cors' });
   const getData = await getWeather.json();
   const cityLon = getData.coord.lon;
   const cityLat = getData.coord.lat;
   const getMoreWeather = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&units=metric&lang=es&appid=e6d7d470999d1a5432119e29077faf4d`, { mode: 'cors' });
   const getMoreData = await getMoreWeather.json();
+  // funcion para traducir main weather data
   const traducirMain = (data) => {
     if (data === 'Drizzle') {
       return 'Llovizna';
-    }
-    if (data === 'Clear') {
+    } if (data === 'Clear') {
       return 'Despejado';
-    }
-    if (data === 'Rain') {
+    } if (data === 'Rain') {
       return 'Lluvia';
     } if (data === 'Clouds') {
       return 'Nublado';
-    } return 'Despejado';
+    } if (data === 'Mist') {
+      return 'Niebla';
+    } if (data === 'Thunderstorm') {
+      return 'Tormenta';
+    } if (data === 'Snow') {
+      return 'Nieve';
+    }
+    // si no fue especificada, devuelve data en ingles
+    return data;
   };
+  // funcion para devolver link src con data icon
+  const weatherImage = (weatherIconData) => `img/${weatherIconData}.png`;
   console.log('///////////////////');
   console.log('///////////////////');
   console.log('///////////////////');
   console.log('datos actuales');
-  console.log(getData.name);
+  cityName.textContent = getData.name;
+  console.log(getData);
+  console.log(getData.weather[0].icon);
+  weatherStatusMain.textContent = traducirMain(getData.weather[0].main);
   console.log(traducirMain(getData.weather[0].main));
+  temperaturaMainIcon.src = weatherImage(getData.weather[0].icon);
   console.log(getData.weather[0].description);
   console.log('temperatura');
-  console.log(`${Math.round(getData.main.temp)}°`);
+  temperaturaMain.textContent = `${Math.round(getData.main.temp)}°`;
   console.log('sensacion termica');
   console.log(`${Math.round(getData.main.feels_like)}°`);
   console.log('temp maxima');
-  console.log(`${Math.round(getData.main.temp_max)}°`);
+  tempMaxMinMain.textContent = (`Max: ${Math.round(getData.main.temp_max)}° | Min: ${Math.round(getData.main.temp_min)}°`);
   console.log('temp minima');
   console.log(`${Math.round(getData.main.temp_min)}°`);
   console.log('humedad');
@@ -77,6 +97,7 @@ const weather = async (city) => {
     }
     return precipitacionData;
   };
+  console.log(getMoreData);
   console.log(`${precipitacion(getMoreData.daily[0].rain)} cm`);
   console.log('probabilidad de lluvia');
   console.log(`${Math.round(getMoreData.hourly[0].pop * 100)}%`);
@@ -190,3 +211,4 @@ buscar.addEventListener('click', () => {
   const cityValue = cityToSearch.replace(' ', '+');
   weather(cityValue);
 });
+weather('buenos+aires');
