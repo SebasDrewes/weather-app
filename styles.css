@@ -99,6 +99,7 @@ html, body {
 }
 #hourlyData {
     display: flex;
+    border-top: solid 1px #48484a;
     flex-direction: row;
     margin-left: 5vw;
     max-width: 70vw;
@@ -106,6 +107,7 @@ html, body {
     overflow: scroll;
     overflow-y: hidden;
 }
+
 .hour {
     display: flex;
     flex-direction: column;
