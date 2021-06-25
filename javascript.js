@@ -49,13 +49,13 @@ const weather = async (city) => {
     weatherStatusMain.textContent = traducirMain(getData.weather[0].main);
     console.log(traducirMain(getData.weather[0].main));
     temperaturaMainIcon.src = weatherImage(getData.weather[0].icon);
-    mainDesc.textContent = `Hoy: ${getData.weather[0].description}. La máxima será de ${Math.round(getData.main.temp_max)}°. La mínima esta noche será de ${Math.round(getData.main.temp_min)}°`;
+    mainDesc.textContent = `Hoy: ${getData.weather[0].description}. La máxima será de ${Math.round(getMoreData.daily[0].temp.max)}°. La mínima esta noche será de ${Math.round(getMoreData.daily[0].temp.night)}°`;
     console.log('temperatura');
     temperaturaMain.textContent = `${Math.round(getData.main.temp)}°`;
     console.log('sensacion termica');
     console.log(`${Math.round(getData.main.feels_like)}°`);
     console.log('temp maxima');
-    tempMaxMinMain.textContent = (`Max: ${Math.round(getData.main.temp_max)}° | Min: ${Math.round(getData.main.temp_min)}°`);
+    tempMaxMinMain.textContent = (`Max: ${Math.round(getMoreData.daily[0].temp.max)}° | Min: ${Math.round(getMoreData.daily[0].temp.min)}°`);
     console.log('temp minima');
     console.log(`${Math.round(getData.main.temp_min)}°`);
     console.log('humedad');
@@ -78,7 +78,7 @@ const weather = async (city) => {
     console.log(sunsetTime);
     console.log('viento');
     // funcion para pasar data viento a string
-    function direccionViento(degree) {
+    const direccionViento = (degree) => {
       if (degree > 337.5) return 'Norte';
       if (degree > 292.5) return 'Noroeste';
       if (degree > 247.5) return 'Oeste';
@@ -88,7 +88,7 @@ const weather = async (city) => {
       if (degree > 67.5) return 'Este';
       if (degree > 22.5) return 'Noreste';
       return 'Norte';
-    }
+    };
     // math round method para tener velocidad sin decimal;
     console.log(`${direccionViento(getData.wind.deg)} ${Math.round(getData.wind.speed)} km/hr`);
     console.log('indice UV');

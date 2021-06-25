@@ -113,9 +113,37 @@ html, body {
     align-items: center;
     justify-content: space-evenly;
 }
+.pop {
+    font-weight: bold;
+    color: darkblue;
+}
 #mainDesc {
     display:flex;
     align-content: center;
     justify-content: center;
+    font-weight: bold;
+}
+#allDayInfo {
+    display:grid;
+    margin: 5vh 0 5vh 0;
+    padding: 5vh;
+    grid-template-columns: repeat(5, 1fr);
+    background-color:#48484a;
+    height: auto;
+    justify-items: center;
+    align-items: center;
+    color: white;
+}
+.dayInfoBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.dayInfoTitle {
+    margin-bottom: 0;
+}
+.dayInfoData {
+    margin-top: 0;
     font-weight: bold;
 }
