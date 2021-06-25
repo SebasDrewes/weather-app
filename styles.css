@@ -55,10 +55,18 @@ html, body {
     border: 1px solid rgb(238, 131, 81);
     outline: none;
 }
+#error {
+    justify-content: center;
+    display: flex;
+    color: red;
+    visibility: hidden;
+    margin-bottom: 0;
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
 #main {
     display: flex;
     height: auto;
-    margin-top: 5vh;
 }
 #mainInfo {
     display:flex;
