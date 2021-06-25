@@ -103,7 +103,7 @@ html, body {
     flex-direction: row;
     margin-left: 5vw;
     max-width: 70vw;
-    height: 40vh;
+    height: auto;
     overflow: scroll;
     overflow-y: hidden;
 }
