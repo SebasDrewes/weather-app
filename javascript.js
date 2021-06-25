@@ -1,6 +1,6 @@
 const weather = async (city) => {
-  // def elementos DOM
   try {
+    // def elementos DOM MAIN
     const cityName = document.querySelector('#cityName');
     const weatherStatusMain = document.querySelector('#weatherStatusMain');
     const temperaturaMain = document.querySelector('#temperaturaMain');
@@ -8,6 +8,17 @@ const weather = async (city) => {
     const temperaturaMainIcon = document.querySelector('#temperaturaMainIcon');
     const mainDesc = document.querySelector('#mainDesc');
     const error = document.querySelector('#error');
+    // def elementos DOM allDayInfo
+    const dayInfoAmanecerData = document.querySelector('#dayInfoAmanecerData');
+    const dayInfoAtardecerData = document.querySelector('#dayInfoAtardecerData');
+    const dayInfoPopData = document.querySelector('#dayInfoPopData');
+    const dayInfoHumedadData = document.querySelector('#dayInfoHumedadData');
+    const dayInfoVientoData = document.querySelector('#dayInfoVientoData');
+    const dayInfoStData = document.querySelector('#dayInfoStData');
+    const dayInfoPrecipData = document.querySelector('#dayInfoPrecipData');
+    const dayInfoPresionData = document.querySelector('#dayInfoPresionData');
+    const dayInfoVisibilidadData = document.querySelector('#dayInfoVisibilidadData');
+    const dayInfoIndUvData = document.querySelector('#dayInfoIndUvData');
     //
     const getWeather = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=es&APPID=e6d7d470999d1a5432119e29077faf4d`, { mode: 'cors' });
     const getData = await getWeather.json();
@@ -42,6 +53,8 @@ const weather = async (city) => {
     console.log('///////////////////');
     console.log('///////////////////');
     console.log('///////////////////');
+    // una vez cargados los datos, muestra la grid allDayInfo
+    document.querySelector('#allDayInfo').style.display = 'grid';
     console.log('datos actuales');
     cityName.textContent = getData.name;
     console.log(getData);
@@ -53,45 +66,53 @@ const weather = async (city) => {
     console.log('temperatura');
     temperaturaMain.textContent = `${Math.round(getData.main.temp)}°`;
     console.log('sensacion termica');
+    dayInfoStData.textContent = `${Math.round(getData.main.feels_like)}°`;
     console.log(`${Math.round(getData.main.feels_like)}°`);
     console.log('temp maxima');
     tempMaxMinMain.textContent = (`Max: ${Math.round(getMoreData.daily[0].temp.max)}° | Min: ${Math.round(getMoreData.daily[0].temp.min)}°`);
     console.log('temp minima');
     console.log(`${Math.round(getData.main.temp_min)}°`);
     console.log('humedad');
+    dayInfoHumedadData.textContent = `${getData.main.humidity}%`;
     console.log(`${getData.main.humidity}%`);
     console.log('presion');
+    dayInfoPresionData.textContent = `${getData.main.pressure} hPa`;
     console.log(`${getData.main.pressure} hPa`);
     console.log('visibilidad');
+    dayInfoVisibilidadData.textContent = `${getData.visibility / 100} km`;
     console.log(`${getData.visibility / 100} km`);
     console.log('amanecer');
     const { sunrise } = getData.sys;
     const sunriseData = new Date(sunrise * 1000);
     // string method para conseguir minutos en dos digitos;
     const sunriseTime = `${sunriseData.getHours()}:${String(sunriseData.getMinutes()).padStart(2, '0')}`;
+    dayInfoAmanecerData.textContent = sunriseTime;
     console.log(sunriseTime);
     console.log('atardecer');
     const { sunset } = getData.sys;
     const sunsetData = new Date(sunset * 1000);
     // string method para conseguir minutos en dos digitos;
     const sunsetTime = `${sunsetData.getHours()}:${String(sunsetData.getMinutes()).padStart(2, '0')}`;
+    dayInfoAtardecerData.textContent = sunsetTime;
     console.log(sunsetTime);
     console.log('viento');
     // funcion para pasar data viento a string
     const direccionViento = (degree) => {
-      if (degree > 337.5) return 'Norte';
-      if (degree > 292.5) return 'Noroeste';
-      if (degree > 247.5) return 'Oeste';
-      if (degree > 202.5) return 'Suroeste';
-      if (degree > 157.5) return 'Sur';
-      if (degree > 122.5) return 'Sureste';
-      if (degree > 67.5) return 'Este';
-      if (degree > 22.5) return 'Noreste';
-      return 'Norte';
+      if (degree > 337.5) return 'N';
+      if (degree > 292.5) return 'NO';
+      if (degree > 247.5) return 'O';
+      if (degree > 202.5) return 'SO';
+      if (degree > 157.5) return 'S';
+      if (degree > 122.5) return 'SE';
+      if (degree > 67.5) return 'E';
+      if (degree > 22.5) return 'N';
+      return 'N';
     };
     // math round method para tener velocidad sin decimal;
+    dayInfoVientoData.textContent = `${direccionViento(getData.wind.deg)} ${Math.round(getData.wind.speed)} km/h`;
     console.log(`${direccionViento(getData.wind.deg)} ${Math.round(getData.wind.speed)} km/hr`);
     console.log('indice UV');
+    dayInfoIndUvData.textContent = getMoreData.current.uvi;
     console.log(getMoreData.current.uvi);
     console.log('precipitacion');
     // funcion para devolver 0 si no hay data de precipitacion
@@ -103,8 +124,10 @@ const weather = async (city) => {
       return precipitacionData;
     };
     console.log(getMoreData);
+    dayInfoPrecipData.textContent = `${precipitacion(getMoreData.daily[0].rain)} cm`;
     console.log(`${precipitacion(getMoreData.daily[0].rain)} cm`);
     console.log('probabilidad de lluvia');
+    dayInfoPopData.textContent = `${Math.round(getMoreData.hourly[0].pop * 100)}%`;
     console.log(`${Math.round(getMoreData.hourly[0].pop * 100)}%`);
     console.log('///////////////////');
     console.log('///////////////////');

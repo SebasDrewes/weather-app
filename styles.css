@@ -124,7 +124,7 @@ html, body {
     font-weight: bold;
 }
 #allDayInfo {
-    display:grid;
+    display:none;
     margin: 5vh 0 5vh 0;
     padding: 5vh;
     grid-template-columns: repeat(5, 1fr);
