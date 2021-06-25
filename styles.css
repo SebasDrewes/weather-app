@@ -36,6 +36,9 @@ html, body {
     border: 1px solid rgb(238, 131, 81);
     outline: none;
 }
+#cityName {
+    margin-top: 0;
+}
 #buscar {
     background-color: #EA6E4B;
     color: white;
@@ -58,7 +61,7 @@ html, body {
 #error {
     justify-content: center;
     display: flex;
-    color: red;
+    color: rgb(238, 131, 81);
     visibility: hidden;
     margin-bottom: 0;
     margin-left: 3vw;
@@ -67,17 +70,16 @@ html, body {
 #main {
     display: flex;
     height: auto;
+    align-items: center;
 }
 #mainInfo {
     display:flex;
-    position: relative;
     flex-direction: column;
     align-items: center;
-    left: 8vw;
+    margin-left: 10vw;
 }
 #cityName {
-    font-weight: lighter;
-    font-size: 3em;
+    font-size: 2em;
 }
 #temperaturaMainDiv {
     display:flex;
@@ -94,4 +96,19 @@ html, body {
 }
 #temperaturaMain {
     font-size: 5em;
+}
+#hourlyData {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5vw;
+    max-width: 70vw;
+    height: 40vh;
+    overflow: scroll;
+    overflow-y: hidden;
+}
+.hour {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
