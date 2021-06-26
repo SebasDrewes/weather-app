@@ -140,6 +140,9 @@ html, body {
 .pop {
     color: darkblue;
 }
+.popDaily {
+    color: darkblue;
+}
 
 #mainDesc {
     display:flex;
@@ -256,7 +259,16 @@ html, body {
         grid-template-columns: 1fr 1fr;
         padding: 3vh;
     }
+    #allWeekInfo{
+        grid-template-columns: repeat(3, 1fr);
+    }
     #allWeekInfo > h4 {
         display: none;
+    }
+    .popDaily {
+        display:none !important;
+    }
+    .hum {
+        display:none !important;
     }
 }
