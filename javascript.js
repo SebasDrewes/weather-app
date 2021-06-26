@@ -9,6 +9,8 @@ const weather = async (city) => {
     const mainDesc = document.querySelector('#mainDesc');
     const error = document.querySelector('#error');
     const footer = document.querySelector('#footer');
+    const cargando = document.querySelector('#cargando');
+
     // def elementos DOM 24hrs
     const hour0Time = document.querySelector('#hour0Time');
     const hour0pop = document.querySelector('#hour0pop');
@@ -199,7 +201,8 @@ const weather = async (city) => {
     const getMoreData = await getMoreWeather.json();
     // si todo ok, se borra error
     error.style.visibility = 'hidden';
-
+    // una vez cargados datos, se borra animacion cargar
+    cargando.style.display = 'none';
     // funcion para devolver 0 si no hay data de precipitacion
     const precipitacion = (data) => {
       let precipitacionData = data;
@@ -497,8 +500,8 @@ github.addEventListener('click', () => {
   window.open('https://github.com/SebasDrewes/', '_blank');
 });
 // eslint-disable-next-line default-case
-document.addEventListener('keydown', (e) => {
-  if (e.code === 'Enter') {
+document.addEventListener('keydown', (key) => {
+  if (key.code === 'Enter') {
     buscar.click();
   }
 });

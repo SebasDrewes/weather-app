@@ -7,7 +7,13 @@ html, body {
     box-sizing: content-box;
     background-color: white;
 }
-
+#cargando {
+    position: absolute;
+    display: block;
+    top: 25%;
+    left: 50%;
+    transform: translate(-25%, -50%);
+}
 #logo {
     width: 100px;
     height: auto;
