@@ -5,6 +5,7 @@ html, body {
     font-family: 'Lato';
     margin: 0;
     box-sizing: content-box;
+    background-color: white;
 }
 #logo {
     width: 100px;
@@ -153,7 +154,28 @@ html, body {
     justify-items: center;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: auto;
-}/*
+    box-sizing: border-box;
+}
+
+  
+#allWeekInfo > p {
+width: 100%;
+border-top: solid 1px #48484a42;
+margin: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+  }
+
+.imgWeekIcon {
+    width:100%;
+    border-top: solid 1px #48484a42;
+    display: flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*
 .weekInfoItem{
     padding: 10px;
     border-bottom: 1px solid black;
