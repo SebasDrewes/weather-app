@@ -9,6 +9,7 @@ const weather = async (city) => {
     const mainDesc = document.querySelector('#mainDesc');
     const error = document.querySelector('#error');
     // def elementos DOM allDayInfo
+    const allDayInfo = document.querySelector('#allDayInfo');
     const dayInfoAmanecerData = document.querySelector('#dayInfoAmanecerData');
     const dayInfoAtardecerData = document.querySelector('#dayInfoAtardecerData');
     const dayInfoPopData = document.querySelector('#dayInfoPopData');
@@ -54,7 +55,7 @@ const weather = async (city) => {
     console.log('///////////////////');
     console.log('///////////////////');
     // una vez cargados los datos, muestra la grid allDayInfo
-    document.querySelector('#allDayInfo').style.display = 'grid';
+    allDayInfo.style.display = 'grid';
     console.log('datos actuales');
     cityName.textContent = getData.name;
     console.log(getData);
