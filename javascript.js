@@ -439,7 +439,7 @@ const weather = async (city) => {
 
     weekDay1Name.textContent = traducirDia((new Date(getMoreData.daily[2].dt * 1000)).toLocaleString('default', { weekday: 'long' }));
     weekDay1Icon.src = weatherImage(getMoreData.daily[2].weather[0].icon);
-    weekDay1Pop.textContent = `${Math.round(getMoreData.daily[1].pop * 100)}%`;
+    weekDay1Pop.textContent = `${Math.round(getMoreData.daily[2].pop * 100)}%`;
     weekDay1Hum.textContent = `${getMoreData.daily[2].humidity}%`;
     weekDay1Temp.textContent = `${Math.round(getMoreData.daily[2].temp.max)}° | ${Math.round(getMoreData.daily[2].temp.min)}°`;
 
