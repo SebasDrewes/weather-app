@@ -254,6 +254,7 @@ html, body {
     }
     #allDayInfo {
         grid-template-columns: 1fr 1fr;
+        padding: 3vh;
     }
     #allWeekInfo > h4 {
         display: none;
