@@ -431,43 +431,43 @@ const weather = async (city) => {
     // cuando carga datos, muestra tabla;
     allWeekInfo.style.display = 'grid';
     // se selecciona solamente nombre del dia de Date data.
-    weekDay0Name.textContent = traducirDia(new Date(getMoreData.daily[1].dt * 1000)).toLocaleString('default', { weekday: 'long' });
+    weekDay0Name.textContent = traducirDia((new Date(getMoreData.daily[1].dt * 1000)).toLocaleString('default', { weekday: 'long' }));
     weekDay0Icon.src = weatherImage(getMoreData.daily[1].weather[0].icon);
     weekDay0Pop.textContent = `${Math.round(getMoreData.daily[1].pop * 100)}%`;
     weekDay0Hum.textContent = `${getMoreData.daily[1].humidity}%`;
     weekDay0Temp.textContent = `${Math.round(getMoreData.daily[1].temp.max)}° | ${Math.round(getMoreData.daily[1].temp.min)}°`;
 
-    weekDay1Name.textContent = traducirDia(new Date(getMoreData.daily[2].dt * 1000)).toLocaleString('default', { weekday: 'long' });
+    weekDay1Name.textContent = traducirDia((new Date(getMoreData.daily[2].dt * 1000)).toLocaleString('default', { weekday: 'long' }));
     weekDay1Icon.src = weatherImage(getMoreData.daily[2].weather[0].icon);
     weekDay1Pop.textContent = `${Math.round(getMoreData.daily[1].pop * 100)}%`;
     weekDay1Hum.textContent = `${getMoreData.daily[2].humidity}%`;
     weekDay1Temp.textContent = `${Math.round(getMoreData.daily[2].temp.max)}° | ${Math.round(getMoreData.daily[2].temp.min)}°`;
 
-    weekDay2Name.textContent = traducirDia(new Date(getMoreData.daily[3].dt * 1000)).toLocaleString('default', { weekday: 'long' });
+    weekDay2Name.textContent = traducirDia((new Date(getMoreData.daily[3].dt * 1000)).toLocaleString('default', { weekday: 'long' }));
     weekDay2Icon.src = weatherImage(getMoreData.daily[3].weather[0].icon);
     weekDay2Pop.textContent = `${Math.round(getMoreData.daily[3].pop * 100)}%`;
     weekDay2Hum.textContent = `${getMoreData.daily[3].humidity}%`;
     weekDay2Temp.textContent = `${Math.round(getMoreData.daily[3].temp.max)}° | ${Math.round(getMoreData.daily[3].temp.min)}°`;
 
-    weekDay3Name.textContent = traducirDia(new Date(getMoreData.daily[4].dt * 1000)).toLocaleString('default', { weekday: 'long' });
+    weekDay3Name.textContent = traducirDia((new Date(getMoreData.daily[4].dt * 1000)).toLocaleString('default', { weekday: 'long' }));
     weekDay3Icon.src = weatherImage(getMoreData.daily[4].weather[0].icon);
     weekDay3Pop.textContent = `${Math.round(getMoreData.daily[4].pop * 100)}%`;
     weekDay3Hum.textContent = `${getMoreData.daily[4].humidity}%`;
     weekDay3Temp.textContent = `${Math.round(getMoreData.daily[4].temp.max)}° | ${Math.round(getMoreData.daily[4].temp.min)}°`;
 
-    weekDay4Name.textContent = traducirDia(new Date(getMoreData.daily[5].dt * 1000)).toLocaleString('default', { weekday: 'long' });
+    weekDay4Name.textContent = traducirDia((new Date(getMoreData.daily[5].dt * 1000)).toLocaleString('default', { weekday: 'long' }));
     weekDay4Icon.src = weatherImage(getMoreData.daily[5].weather[0].icon);
     weekDay4Pop.textContent = `${Math.round(getMoreData.daily[5].pop * 100)}%`;
     weekDay4Hum.textContent = `${getMoreData.daily[5].humidity}%`;
     weekDay4Temp.textContent = `${Math.round(getMoreData.daily[5].temp.max)}° | ${Math.round(getMoreData.daily[5].temp.min)}°`;
 
-    weekDay5Name.textContent = traducirDia(new Date(getMoreData.daily[6].dt * 1000)).toLocaleString('default', { weekday: 'long' });
+    weekDay5Name.textContent = traducirDia((new Date(getMoreData.daily[6].dt * 1000)).toLocaleString('default', { weekday: 'long' }));
     weekDay5Icon.src = weatherImage(getMoreData.daily[6].weather[0].icon);
     weekDay5Pop.textContent = `${Math.round(getMoreData.daily[6].pop * 100)}%`;
     weekDay5Hum.textContent = `${getMoreData.daily[6].humidity}%`;
     weekDay5Temp.textContent = `${Math.round(getMoreData.daily[6].temp.max)}° | ${Math.round(getMoreData.daily[6].temp.min)}°`;
 
-    weekDay6Name.textContent = traducirDia(new Date(getMoreData.daily[7].dt * 1000)).toLocaleString('default', { weekday: 'long' });
+    weekDay6Name.textContent = traducirDia((new Date(getMoreData.daily[7].dt * 1000)).toLocaleString('default', { weekday: 'long' }));
     weekDay6Icon.src = weatherImage(getMoreData.daily[7].weather[0].icon);
     weekDay6Pop.textContent = `${Math.round(getMoreData.daily[7].pop * 100)}%`;
     weekDay6Hum.textContent = `${getMoreData.daily[7].humidity}%`;
