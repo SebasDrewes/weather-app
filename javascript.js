@@ -237,7 +237,7 @@ const weather = async (city) => {
         case 'Tuesday':
           return 'Martes';
         case 'Wednesday':
-          return 'asd';
+          return 'Miércoles';
         case 'Thursday':
           return 'Jueves';
         case 'Friday':
