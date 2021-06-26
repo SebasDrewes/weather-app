@@ -484,10 +484,14 @@ const weather = async (city) => {
 const buscar = document.querySelector('#buscar');
 const city = document.querySelector('#city');
 const github = document.querySelector('#github');
+const logo = document.querySelector('#logo');
 buscar.addEventListener('click', () => {
   const cityToSearch = city.value;
   const cityValue = cityToSearch.replace(' ', '+');
   weather(cityValue);
+});
+logo.addEventListener('click', () => {
+  window.open('https://openweathermap.org/', '_blank');
 });
 github.addEventListener('click', () => {
   window.open('https://github.com/SebasDrewes/', '_blank');
