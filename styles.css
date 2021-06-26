@@ -11,7 +11,6 @@ html, body {
 #logo {
     width: 100px;
     height: auto;
-    margin-left: 0.5vh;
 }
 
 #header {
@@ -239,8 +238,12 @@ html, body {
     opacity: 0.5;
 }
 @media only screen and (max-width: 990px) {
+    #logo {
+        margin-left: 1vh;
+    }
     #error{
-        margin: 0;
+        margin: 0; 
+        font-size: 0.8em;
     }
     #header {
         justify-content: space-between;
@@ -258,7 +261,7 @@ html, body {
     #allDayInfo {
         grid-template-columns: 1fr 1fr;
         padding: 3vh;
-        margin: 5vh 0 0 0;
+        margin: 0;
     }
     #allWeekInfo{
         grid-template-columns: repeat(3, 1fr);
