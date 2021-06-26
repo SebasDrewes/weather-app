@@ -255,15 +255,26 @@ const weather = async (city) => {
     };
     // funcion para pasar data viento a string
     const direccionViento = (degree) => {
-      if (degree > 337.5) return 'N';
-      if (degree > 292.5) return 'NO';
-      if (degree > 247.5) return 'O';
-      if (degree > 202.5) return 'SO';
-      if (degree > 157.5) return 'S';
-      if (degree > 122.5) return 'SE';
-      if (degree > 67.5) return 'E';
-      if (degree > 22.5) return 'N';
-      return 'N';
+      switch (true) {
+        case degree > 337.5:
+          return 'N';
+        case degree > 292.5:
+          return 'NO';
+        case degree > 247.5:
+          return 'O';
+        case degree > 202.5:
+          return 'SO';
+        case degree > 157.5:
+          return 'S';
+        case degree > 122.5:
+          return 'SE';
+        case degree > 67.5:
+          return 'E';
+        case degree > 22.5:
+          return 'N';
+        default:
+          return 'N';
+      }
     };
     // funcion para devolver link src con data icon
     const weatherImage = (weatherIconData) => `img/${weatherIconData}.png`;
