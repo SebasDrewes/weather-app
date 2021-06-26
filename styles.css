@@ -11,6 +11,7 @@ html, body {
 #logo {
     width: 100px;
     height: auto;
+    margin-left: 0.5vh;
 }
 
 #header {
@@ -25,6 +26,7 @@ html, body {
     display:flex;
     height: auto;
     align-items: stretch;
+    margin-right: 0.5vh;
 }
 
 #city {
@@ -142,6 +144,7 @@ html, body {
     display:flex;
     align-content: center;
     justify-content: center;
+    text-align: center;
 }
 
 #allDayInfo {
@@ -165,6 +168,7 @@ html, body {
 
 .dayInfoTitle {
     margin-bottom: 0;
+    text-align:center;
 }
 
 .dayInfoData {
@@ -193,6 +197,8 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    text-align: center;
+
 }
 
 .imgWeekIcon {
@@ -227,4 +233,25 @@ html, body {
 
 #github:hover {
     opacity: 0.5;
+}
+@media only screen and (max-width: 990px) {
+    #header {
+        justify-content: space-between;
+    }
+    #main {
+        flex-direction: column;
+    }
+    #mainInfo {
+        margin: 0;
+    }
+    #hourlyData{
+        margin: 0;
+        max-width: 100vw;
+    }
+    #allDayInfo {
+        grid-template-columns: 1fr 1fr;
+    }
+    #allWeekInfo > h4 {
+        display: none;
+    }
 }

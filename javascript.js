@@ -483,9 +483,14 @@ const weather = async (city) => {
 };
 const buscar = document.querySelector('#buscar');
 const city = document.querySelector('#city');
+const github = document.querySelector('#github');
 buscar.addEventListener('click', () => {
   const cityToSearch = city.value;
   const cityValue = cityToSearch.replace(' ', '+');
   weather(cityValue);
 });
+github.addEventListener('click', () => {
+  window.open('https://github.com/SebasDrewes/', '_blank');
+});
+
 weather('buenos+aires');
