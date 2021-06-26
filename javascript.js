@@ -8,6 +8,7 @@ const weather = async (city) => {
     const temperaturaMainIcon = document.querySelector('#temperaturaMainIcon');
     const mainDesc = document.querySelector('#mainDesc');
     const error = document.querySelector('#error');
+    const footer = document.querySelector('#footer');
     // def elementos DOM 24hrs
     const hour0Time = document.querySelector('#hour0Time');
     const hour0pop = document.querySelector('#hour0pop');
@@ -266,6 +267,9 @@ const weather = async (city) => {
 
     // una vez cargados los datos, muestra la grid allDayInfo
     allDayInfo.style.display = 'grid';
+
+    // una vez cargados datos, muestra footer
+    footer.style.display = 'flex';
 
     // datos main
     cityName.textContent = getData.name;

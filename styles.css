@@ -7,10 +7,12 @@ html, body {
     box-sizing: content-box;
     background-color: white;
 }
+
 #logo {
     width: 100px;
     height: auto;
 }
+
 #header {
     height: 10vh;
     display: flex;
@@ -18,11 +20,13 @@ html, body {
     justify-content: space-evenly;
     align-items: center;
 }
+
 #searchCity {
     display:flex;
     height: auto;
     align-items: stretch;
 }
+
 #city {
     background-color:white;
     width: 35vw;
@@ -33,14 +37,17 @@ html, body {
     border-bottom-left-radius: 0.2em;
     border:hidden;
 }
+
 #city:focus {
     box-shadow: 0 0 5px rgb(238, 131, 81);
     border: 1px solid rgb(238, 131, 81);
     outline: none;
 }
+
 #cityName {
     margin-top: 0;
 }
+
 #buscar {
     background-color: #EA6E4B;
     color: white;
@@ -55,11 +62,13 @@ html, body {
     border:hidden;
     cursor: pointer;
 }
+
 #buscar:focus {
     box-shadow: 0 0 5px rgb(238, 131, 81);
     border: 1px solid rgb(238, 131, 81);
     outline: none;
 }
+
 #error {
     justify-content: center;
     display: flex;
@@ -69,36 +78,44 @@ html, body {
     margin-left: 3vw;
     margin-right: 3vw;
 }
+
 #main {
     display: flex;
     height: auto;
     align-items: center;
 }
+
 #mainInfo {
     display:flex;
     flex-direction: column;
     align-items: center;
     margin-left: 10vw;
 }
+
 #cityName {
     font-size: 2em;
 }
+
 #temperaturaMainDiv {
     display:flex;
     flex-direction: row;
     align-items: center;
 }
+
 #temperaturaMainIcon{
     width: 8em;
     height: auto;
 }
+
 #weatherStatusMain {
     font-weight: lighter;
     margin: 0;
 }
+
 #temperaturaMain {
     font-size: 5em;
 }
+
 #hourlyData {
     display: flex;
     border-top: solid 1px #48484a42;
@@ -109,22 +126,24 @@ html, body {
     overflow: scroll;
     overflow-y: hidden;
 }
+
 .hour {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
 }
+
 .pop {
-    font-weight: bold;
     color: darkblue;
 }
+
 #mainDesc {
     display:flex;
     align-content: center;
     justify-content: center;
-    font-weight: bold;
 }
+
 #allDayInfo {
     display:none;
     margin: 5vh 0 5vh 0;
@@ -136,19 +155,22 @@ html, body {
     align-items: center;
     color: white;
 }
+
 .dayInfoBlock {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
 .dayInfoTitle {
     margin-bottom: 0;
 }
+
 .dayInfoData {
     margin-top: 0;
-    font-weight: bold;
 }
+
 #allWeekInfo {
     display:none;
     justify-items: center;
@@ -156,16 +178,22 @@ html, body {
     grid-template-rows: auto;
     box-sizing: border-box;
 }
-
-  
+ 
 #allWeekInfo > p {
-width: 100%;
-border-top: solid 1px #48484a42;
-margin: 0;
-display: flex;
-justify-content: center;
-align-items: center;
-  }
+    width: 100%;
+    border-top: solid 1px #48484a42;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#allWeekInfo > h4 {
+    font-weight:100;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
 
 .imgWeekIcon {
     width:100%;
@@ -175,24 +203,28 @@ align-items: center;
     justify-content: center;
     align-items: center;
 }
-/*
-.weekInfoItem{
-    padding: 10px;
-    border-bottom: 1px solid black;
-   }
 
-/*
-.weekInfoBlock {
-    display:flex;
-    flex-basis: 100%;
-    flex-basis: 0;
-    flex-direction: row;
-    justify-content: space-evenly;
+#footer {
+    height: 10vh;
+    display: none;
+    background-color:#48484a;
+    justify-content: center;
     align-items: center;
 }
-.weekInfoDay {
-    flex: 0 1 auto;
+
+#footerText {
+    color: white;
+    margin: 0;
 }
-#hidden {
-    visibility: hidden;
+
+#github {
+    height: 1.5em;
+    margin: 0;
+    cursor: pointer;
+    margin-left: 0.5vw;
+    margin-top: 0.5vh;
+}
+
+#github:hover {
+    opacity: 0.5;
 }
