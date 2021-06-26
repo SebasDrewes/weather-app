@@ -149,7 +149,7 @@ html, body {
     font-weight: bold;
 }
 #allWeekInfo {
-    display:grid;
+    display:none;
     justify-items: center;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: auto;

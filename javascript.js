@@ -20,6 +20,49 @@ const weather = async (city) => {
     const dayInfoPresionData = document.querySelector('#dayInfoPresionData');
     const dayInfoVisibilidadData = document.querySelector('#dayInfoVisibilidadData');
     const dayInfoIndUvData = document.querySelector('#dayInfoIndUvData');
+    // def elementos DOM allWeekInfo
+    const allWeekInfo = document.querySelector('#allWeekInfo');
+    const weekDay0Name = document.querySelector('#weekDay0Name');
+    const weekDay0Icon = document.querySelector('#weekDay0Icon');
+    const weekDay0Pop = document.querySelector('#weekDay0Pop');
+    const weekDay0Hum = document.querySelector('#weekDay0Hum');
+    const weekDay0Temp = document.querySelector('#weekDay0Temp');
+
+    const weekDay1Name = document.querySelector('#weekDay1Name');
+    const weekDay1Icon = document.querySelector('#weekDay1Icon');
+    const weekDay1Pop = document.querySelector('#weekDay1Pop');
+    const weekDay1Hum = document.querySelector('#weekDay1Hum');
+    const weekDay1Temp = document.querySelector('#weekDay1Temp');
+
+    const weekDay2Name = document.querySelector('#weekDay2Name');
+    const weekDay2Icon = document.querySelector('#weekDay2Icon');
+    const weekDay2Pop = document.querySelector('#weekDay2Pop');
+    const weekDay2Hum = document.querySelector('#weekDay2Hum');
+    const weekDay2Temp = document.querySelector('#weekDay2Temp');
+
+    const weekDay3Name = document.querySelector('#weekDay3Name');
+    const weekDay3Icon = document.querySelector('#weekDay3Icon');
+    const weekDay3Pop = document.querySelector('#weekDay3Pop');
+    const weekDay3Hum = document.querySelector('#weekDay3Hum');
+    const weekDay3Temp = document.querySelector('#weekDay3Temp');
+
+    const weekDay4Name = document.querySelector('#weekDay4Name');
+    const weekDay4Icon = document.querySelector('#weekDay4Icon');
+    const weekDay4Pop = document.querySelector('#weekDay4Pop');
+    const weekDay4Hum = document.querySelector('#weekDay4Hum');
+    const weekDay4Temp = document.querySelector('#weekDay4Temp');
+
+    const weekDay5Name = document.querySelector('#weekDay5Name');
+    const weekDay5Icon = document.querySelector('#weekDay5Icon');
+    const weekDay5Pop = document.querySelector('#weekDay5Pop');
+    const weekDay5Hum = document.querySelector('#weekDay5Hum');
+    const weekDay5Temp = document.querySelector('#weekDay5Temp');
+
+    const weekDay6Name = document.querySelector('#weekDay6Name');
+    const weekDay6Icon = document.querySelector('#weekDay6Icon');
+    const weekDay6Pop = document.querySelector('#weekDay6Pop');
+    const weekDay6Hum = document.querySelector('#weekDay6Hum');
+    const weekDay6Temp = document.querySelector('#weekDay6Temp');
     //
     const getWeather = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=es&APPID=e6d7d470999d1a5432119e29077faf4d`, { mode: 'cors' });
     const getData = await getWeather.json();
@@ -31,23 +74,44 @@ const weather = async (city) => {
     error.style.visibility = 'hidden';
     // funcion para traducir main weather data
     const traducirMain = (data) => {
-      if (data === 'Drizzle') {
-        return 'Llovizna';
-      } if (data === 'Clear') {
-        return 'Despejado';
-      } if (data === 'Rain') {
-        return 'Lluvia';
-      } if (data === 'Clouds') {
-        return 'Nublado';
-      } if (data === 'Mist') {
-        return 'Niebla';
-      } if (data === 'Thunderstorm') {
-        return 'Tormenta';
-      } if (data === 'Snow') {
-        return 'Nieve';
+      switch (data) {
+        case 'Drizzle':
+          return 'Llovizna';
+        case 'Clear':
+          return 'Despejado';
+        case 'Rain':
+          return 'Lluvia';
+        case 'Clouds':
+          return 'Nublado';
+        case 'Mist':
+          return 'Niebla';
+        case 'Thunderstorm':
+          return 'Tormenta';
+        case 'Snow':
+          return 'Nieve';
+        default:
+          return data;
       }
-      // si no fue especificada, devuelve data en ingles
-      return data;
+    };
+    const traducirDia = (date) => {
+      switch (date) {
+        case 'Monday':
+          return 'Lunes';
+        case 'Tuesday':
+          return 'Martes';
+        case 'Wednesday':
+          return 'Miércoles';
+        case 'Thursday':
+          return 'Jueves';
+        case 'Friday':
+          return 'Viernes';
+        case 'Saturday':
+          return 'Sabado';
+        case 'Sunday':
+          return 'Domingo';
+        default:
+          return date;
+      }
     };
     // funcion para devolver link src con data icon
     const weatherImage = (weatherIconData) => `img/${weatherIconData}.png`;
@@ -70,7 +134,7 @@ const weather = async (city) => {
     dayInfoStData.textContent = `${Math.round(getData.main.feels_like)}°`;
     console.log(`${Math.round(getData.main.feels_like)}°`);
     console.log('temp maxima');
-    tempMaxMinMain.textContent = (`Max: ${Math.round(getMoreData.daily[0].temp.max)}° | Min: ${Math.round(getMoreData.daily[0].temp.min)}°`);
+    tempMaxMinMain.textContent = `Max: ${Math.round(getMoreData.daily[0].temp.max)}° | Min: ${Math.round(getMoreData.daily[0].temp.min)}°`;
     console.log('temp minima');
     console.log(`${Math.round(getData.main.temp_min)}°`);
     console.log('humedad');
@@ -339,12 +403,51 @@ const weather = async (city) => {
     console.log('///////////////////');
     console.log('///////////////////');
     console.log('informe semanal');
-    console.log((new Date(getMoreData.daily[1].dt * 1000)).toLocaleString('default', { weekday: 'long' }));
-    console.log(getMoreData.daily[1].weather[0].main);
-    console.log(`probabilidad de lluvia: ${Math.round(getMoreData.daily[1].pop * 100)}%`);
-    console.log(`Humedad: ${getMoreData.daily[1].humidity}%`);
-    console.log(`Temperatura Max ${Math.round(getMoreData.daily[1].temp.max)}°`);
-    console.log(`Temperatura Min ${Math.round(getMoreData.daily[1].temp.min)}°`);
+    // cuando carga datos, muestra tabla;
+    allWeekInfo.style.display = 'grid';
+    // se selecciona solamente nombre del dia de Date data.
+    weekDay0Name.textContent = traducirDia(new Date(getMoreData.daily[1].dt * 1000)).toLocaleString('default', { weekday: 'long' });
+    weekDay0Icon.src = weatherImage(getMoreData.daily[1].weather[0].icon);
+    weekDay0Pop.textContent = `${Math.round(getMoreData.daily[1].pop * 100)}%`;
+    weekDay0Hum.textContent = `${getMoreData.daily[1].humidity}%`;
+    weekDay0Temp.textContent = `${Math.round(getMoreData.daily[1].temp.max)}° | ${Math.round(getMoreData.daily[1].temp.min)}°`;
+
+    weekDay1Name.textContent = traducirDia(new Date(getMoreData.daily[2].dt * 1000)).toLocaleString('default', { weekday: 'long' });
+    weekDay1Icon.src = weatherImage(getMoreData.daily[2].weather[0].icon);
+    weekDay1Pop.textContent = `${Math.round(getMoreData.daily[1].pop * 100)}%`;
+    weekDay1Hum.textContent = `${getMoreData.daily[2].humidity}%`;
+    weekDay1Temp.textContent = `${Math.round(getMoreData.daily[2].temp.max)}° | ${Math.round(getMoreData.daily[2].temp.min)}°`;
+
+    weekDay2Name.textContent = traducirDia(new Date(getMoreData.daily[3].dt * 1000)).toLocaleString('default', { weekday: 'long' });
+    weekDay2Icon.src = weatherImage(getMoreData.daily[3].weather[0].icon);
+    weekDay2Pop.textContent = `${Math.round(getMoreData.daily[3].pop * 100)}%`;
+    weekDay2Hum.textContent = `${getMoreData.daily[3].humidity}%`;
+    weekDay2Temp.textContent = `${Math.round(getMoreData.daily[3].temp.max)}° | ${Math.round(getMoreData.daily[3].temp.min)}°`;
+
+    weekDay3Name.textContent = traducirDia(new Date(getMoreData.daily[4].dt * 1000)).toLocaleString('default', { weekday: 'long' });
+    weekDay3Icon.src = weatherImage(getMoreData.daily[4].weather[0].icon);
+    weekDay3Pop.textContent = `${Math.round(getMoreData.daily[4].pop * 100)}%`;
+    weekDay3Hum.textContent = `${getMoreData.daily[4].humidity}%`;
+    weekDay3Temp.textContent = `${Math.round(getMoreData.daily[4].temp.max)}° | ${Math.round(getMoreData.daily[4].temp.min)}°`;
+
+    weekDay4Name.textContent = traducirDia(new Date(getMoreData.daily[5].dt * 1000)).toLocaleString('default', { weekday: 'long' });
+    weekDay4Icon.src = weatherImage(getMoreData.daily[5].weather[0].icon);
+    weekDay4Pop.textContent = `${Math.round(getMoreData.daily[5].pop * 100)}%`;
+    weekDay4Hum.textContent = `${getMoreData.daily[5].humidity}%`;
+    weekDay4Temp.textContent = `${Math.round(getMoreData.daily[5].temp.max)}° | ${Math.round(getMoreData.daily[5].temp.min)}°`;
+
+    weekDay5Name.textContent = traducirDia(new Date(getMoreData.daily[6].dt * 1000)).toLocaleString('default', { weekday: 'long' });
+    weekDay5Icon.src = weatherImage(getMoreData.daily[6].weather[0].icon);
+    weekDay5Pop.textContent = `${Math.round(getMoreData.daily[6].pop * 100)}%`;
+    weekDay5Hum.textContent = `${getMoreData.daily[6].humidity}%`;
+    weekDay5Temp.textContent = `${Math.round(getMoreData.daily[6].temp.max)}° | ${Math.round(getMoreData.daily[6].temp.min)}°`;
+
+    weekDay6Name.textContent = traducirDia(new Date(getMoreData.daily[7].dt * 1000)).toLocaleString('default', { weekday: 'long' });
+    weekDay6Icon.src = weatherImage(getMoreData.daily[7].weather[0].icon);
+    weekDay6Pop.textContent = `${Math.round(getMoreData.daily[7].pop * 100)}%`;
+    weekDay6Hum.textContent = `${getMoreData.daily[7].humidity}%`;
+    weekDay6Temp.textContent = `${Math.round(getMoreData.daily[7].temp.max)}° | ${Math.round(getMoreData.daily[7].temp.min)}°`;
+
     console.log((new Date(getMoreData.daily[2].dt * 1000)).toLocaleString('default', { weekday: 'long' }));
     console.log(getMoreData.daily[2].weather[0].main);
     console.log(`probabilidad de lluvia: ${Math.round(getMoreData.daily[2].pop * 100)}%`);
