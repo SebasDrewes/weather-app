@@ -492,5 +492,11 @@ buscar.addEventListener('click', () => {
 github.addEventListener('click', () => {
   window.open('https://github.com/SebasDrewes/', '_blank');
 });
+// eslint-disable-next-line default-case
+document.addEventListener('keydown', (e) => {
+  if (e.code === 'Enter') {
+    buscar.click();
+  }
+});
 
 weather('buenos+aires');
