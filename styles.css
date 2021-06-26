@@ -214,7 +214,7 @@ html, body {
 }
 
 #footer {
-    height: 10vh;
+    height: auto;
     display: none;
     background-color:#48484a;
     justify-content: center;
