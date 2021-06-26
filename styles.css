@@ -258,6 +258,7 @@ html, body {
     #allDayInfo {
         grid-template-columns: 1fr 1fr;
         padding: 3vh;
+        margin: 5vh 0 0 0;
     }
     #allWeekInfo{
         grid-template-columns: repeat(3, 1fr);
