@@ -501,6 +501,10 @@ const weather = async (city) => {
   } catch {
     const error = document.querySelector('#error');
     error.style.visibility = 'visible';
+    const cargando = document.querySelector('#cargando');
+    const opacoWrap = document.querySelector('#opacoWrap');
+    cargando.style.display = 'none';
+    opacoWrap.style.opacity = '1';
   }
 };
 const buscar = document.querySelector('#buscar');
