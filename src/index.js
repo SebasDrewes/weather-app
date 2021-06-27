@@ -1,197 +1,279 @@
 const weather = async (city) => {
+  // def elementos DOM MAIN
+
+  const cityName = document.querySelector('#cityName');
+  const weatherStatusMain = document.querySelector('#weatherStatusMain');
+  const temperaturaMain = document.querySelector('#temperaturaMain');
+  const tempMaxMinMain = document.querySelector('#tempMaxMinMain');
+  const temperaturaMainIcon = document.querySelector('#temperaturaMainIcon');
+  const mainDesc = document.querySelector('#mainDesc');
+  const error = document.querySelector('#error');
+  const footer = document.querySelector('#footer');
+  const cargando = document.querySelector('#cargando');
+  const opacoWrap = document.querySelector('#opacoWrap');
+
+  // def elementos DOM 24hrs
+  const hour0Time = document.querySelector('#hour0Time');
+  const hour0pop = document.querySelector('#hour0pop');
+  const hour0Weather = document.querySelector('#hour0Weather');
+  const hour0Temp = document.querySelector('#hour0Temp');
+
+  const hour1Time = document.querySelector('#hour1Time');
+  const hour1pop = document.querySelector('#hour1pop');
+  const hour1Weather = document.querySelector('#hour1Weather');
+  const hour1Temp = document.querySelector('#hour1Temp');
+
+  const hour2Time = document.querySelector('#hour2Time');
+  const hour2pop = document.querySelector('#hour2pop');
+  const hour2Weather = document.querySelector('#hour2Weather');
+  const hour2Temp = document.querySelector('#hour2Temp');
+
+  const hour3Time = document.querySelector('#hour3Time');
+  const hour3pop = document.querySelector('#hour3pop');
+  const hour3Weather = document.querySelector('#hour3Weather');
+  const hour3Temp = document.querySelector('#hour3Temp');
+
+  const hour4Time = document.querySelector('#hour4Time');
+  const hour4pop = document.querySelector('#hour4pop');
+  const hour4Weather = document.querySelector('#hour4Weather');
+  const hour4Temp = document.querySelector('#hour4Temp');
+
+  const hour5Time = document.querySelector('#hour5Time');
+  const hour5pop = document.querySelector('#hour5pop');
+  const hour5Weather = document.querySelector('#hour5Weather');
+  const hour5Temp = document.querySelector('#hour5Temp');
+
+  const hour6Time = document.querySelector('#hour6Time');
+  const hour6pop = document.querySelector('#hour6pop');
+  const hour6Weather = document.querySelector('#hour6Weather');
+  const hour6Temp = document.querySelector('#hour6Temp');
+
+  const hour7Time = document.querySelector('#hour7Time');
+  const hour7pop = document.querySelector('#hour7pop');
+  const hour7Weather = document.querySelector('#hour7Weather');
+  const hour7Temp = document.querySelector('#hour7Temp');
+
+  const hour8Time = document.querySelector('#hour8Time');
+  const hour8pop = document.querySelector('#hour8pop');
+  const hour8Weather = document.querySelector('#hour8Weather');
+  const hour8Temp = document.querySelector('#hour8Temp');
+
+  const hour9Time = document.querySelector('#hour9Time');
+  const hour9pop = document.querySelector('#hour9pop');
+  const hour9Weather = document.querySelector('#hour9Weather');
+  const hour9Temp = document.querySelector('#hour9Temp');
+
+  const hour10Time = document.querySelector('#hour10Time');
+  const hour10pop = document.querySelector('#hour10pop');
+  const hour10Weather = document.querySelector('#hour10Weather');
+  const hour10Temp = document.querySelector('#hour10Temp');
+
+  const hour11Time = document.querySelector('#hour11Time');
+  const hour11pop = document.querySelector('#hour11pop');
+  const hour11Weather = document.querySelector('#hour11Weather');
+  const hour11Temp = document.querySelector('#hour11Temp');
+
+  const hour12Time = document.querySelector('#hour12Time');
+  const hour12pop = document.querySelector('#hour12pop');
+  const hour12Weather = document.querySelector('#hour12Weather');
+  const hour12Temp = document.querySelector('#hour12Temp');
+
+  const hour13Time = document.querySelector('#hour13Time');
+  const hour13pop = document.querySelector('#hour13pop');
+  const hour13Weather = document.querySelector('#hour13Weather');
+  const hour13Temp = document.querySelector('#hour13Temp');
+
+  const hour14Time = document.querySelector('#hour14Time');
+  const hour14pop = document.querySelector('#hour14pop');
+  const hour14Weather = document.querySelector('#hour14Weather');
+  const hour14Temp = document.querySelector('#hour14Temp');
+
+  const hour15Time = document.querySelector('#hour15Time');
+  const hour15pop = document.querySelector('#hour15pop');
+  const hour15Weather = document.querySelector('#hour15Weather');
+  const hour15Temp = document.querySelector('#hour15Temp');
+
+  const hour16Time = document.querySelector('#hour16Time');
+  const hour16pop = document.querySelector('#hour16pop');
+  const hour16Weather = document.querySelector('#hour16Weather');
+  const hour16Temp = document.querySelector('#hour16Temp');
+
+  const hour17Time = document.querySelector('#hour17Time');
+  const hour17pop = document.querySelector('#hour17pop');
+  const hour17Weather = document.querySelector('#hour17Weather');
+  const hour17Temp = document.querySelector('#hour17Temp');
+
+  const hour18Time = document.querySelector('#hour18Time');
+  const hour18pop = document.querySelector('#hour18pop');
+  const hour18Weather = document.querySelector('#hour18Weather');
+  const hour18Temp = document.querySelector('#hour18Temp');
+
+  const hour19Time = document.querySelector('#hour19Time');
+  const hour19pop = document.querySelector('#hour19pop');
+  const hour19Weather = document.querySelector('#hour19Weather');
+  const hour19Temp = document.querySelector('#hour19Temp');
+
+  const hour20Time = document.querySelector('#hour20Time');
+  const hour20pop = document.querySelector('#hour20pop');
+  const hour20Weather = document.querySelector('#hour20Weather');
+  const hour20Temp = document.querySelector('#hour20Temp');
+
+  const hour21Time = document.querySelector('#hour21Time');
+  const hour21pop = document.querySelector('#hour21pop');
+  const hour21Weather = document.querySelector('#hour21Weather');
+  const hour21Temp = document.querySelector('#hour21Temp');
+
+  const hour22Time = document.querySelector('#hour22Time');
+  const hour22pop = document.querySelector('#hour22pop');
+  const hour22Weather = document.querySelector('#hour22Weather');
+  const hour22Temp = document.querySelector('#hour22Temp');
+
+  const hour23Time = document.querySelector('#hour23Time');
+  const hour23pop = document.querySelector('#hour23pop');
+  const hour23Weather = document.querySelector('#hour23Weather');
+  const hour23Temp = document.querySelector('#hour23Temp');
+
+  const hour24Time = document.querySelector('#hour24Time');
+  const hour24pop = document.querySelector('#hour24pop');
+  const hour24Weather = document.querySelector('#hour24Weather');
+  const hour24Temp = document.querySelector('#hour24Temp');
+
+  // def elementos DOM allDayInfo
+
+  const allDayInfo = document.querySelector('#allDayInfo');
+  const dayInfoAmanecerData = document.querySelector('#dayInfoAmanecerData');
+  const dayInfoAtardecerData = document.querySelector('#dayInfoAtardecerData');
+  const dayInfoPopData = document.querySelector('#dayInfoPopData');
+  const dayInfoHumedadData = document.querySelector('#dayInfoHumedadData');
+  const dayInfoVientoData = document.querySelector('#dayInfoVientoData');
+  const dayInfoStData = document.querySelector('#dayInfoStData');
+  const dayInfoPrecipData = document.querySelector('#dayInfoPrecipData');
+  const dayInfoPresionData = document.querySelector('#dayInfoPresionData');
+  const dayInfoVisibilidadData = document.querySelector('#dayInfoVisibilidadData');
+  const dayInfoIndUvData = document.querySelector('#dayInfoIndUvData');
+
+  // def elementos DOM allWeekInfo
+
+  const allWeekInfo = document.querySelector('#allWeekInfo');
+  const weekDay0Name = document.querySelector('#weekDay0Name');
+  const weekDay0Icon = document.querySelector('#weekDay0Icon');
+  const weekDay0Pop = document.querySelector('#weekDay0Pop');
+  const weekDay0Hum = document.querySelector('#weekDay0Hum');
+  const weekDay0Temp = document.querySelector('#weekDay0Temp');
+
+  const weekDay1Name = document.querySelector('#weekDay1Name');
+  const weekDay1Icon = document.querySelector('#weekDay1Icon');
+  const weekDay1Pop = document.querySelector('#weekDay1Pop');
+  const weekDay1Hum = document.querySelector('#weekDay1Hum');
+  const weekDay1Temp = document.querySelector('#weekDay1Temp');
+
+  const weekDay2Name = document.querySelector('#weekDay2Name');
+  const weekDay2Icon = document.querySelector('#weekDay2Icon');
+  const weekDay2Pop = document.querySelector('#weekDay2Pop');
+  const weekDay2Hum = document.querySelector('#weekDay2Hum');
+  const weekDay2Temp = document.querySelector('#weekDay2Temp');
+
+  const weekDay3Name = document.querySelector('#weekDay3Name');
+  const weekDay3Icon = document.querySelector('#weekDay3Icon');
+  const weekDay3Pop = document.querySelector('#weekDay3Pop');
+  const weekDay3Hum = document.querySelector('#weekDay3Hum');
+  const weekDay3Temp = document.querySelector('#weekDay3Temp');
+
+  const weekDay4Name = document.querySelector('#weekDay4Name');
+  const weekDay4Icon = document.querySelector('#weekDay4Icon');
+  const weekDay4Pop = document.querySelector('#weekDay4Pop');
+  const weekDay4Hum = document.querySelector('#weekDay4Hum');
+  const weekDay4Temp = document.querySelector('#weekDay4Temp');
+
+  const weekDay5Name = document.querySelector('#weekDay5Name');
+  const weekDay5Icon = document.querySelector('#weekDay5Icon');
+  const weekDay5Pop = document.querySelector('#weekDay5Pop');
+  const weekDay5Hum = document.querySelector('#weekDay5Hum');
+  const weekDay5Temp = document.querySelector('#weekDay5Temp');
+
+  const weekDay6Name = document.querySelector('#weekDay6Name');
+  const weekDay6Icon = document.querySelector('#weekDay6Icon');
+  const weekDay6Pop = document.querySelector('#weekDay6Pop');
+  const weekDay6Hum = document.querySelector('#weekDay6Hum');
+  const weekDay6Temp = document.querySelector('#weekDay6Temp');
+
+  // funcion para devolver 0 si no hay data de precipitacion
+  const precipitacion = (data) => {
+    let precipitacionData = data;
+    if (precipitacionData === undefined) {
+      precipitacionData = 0;
+    }
+    return precipitacionData;
+  };
+  // funcion para traducir main weather data
+  const traducirMain = (data) => {
+    switch (data) {
+      case 'Drizzle':
+        return 'Llovizna';
+      case 'Clear':
+        return 'Despejado';
+      case 'Rain':
+        return 'Lluvia';
+      case 'Clouds':
+        return 'Nublado';
+      case 'Mist':
+        return 'Niebla';
+      case 'Thunderstorm':
+        return 'Tormenta';
+      case 'Snow':
+        return 'Nieve';
+      default:
+        return data;
+    }
+  };
+  // funcion para traducir dias
+  const traducirDia = (date) => {
+    switch (date) {
+      case 'Monday':
+        return 'Lunes';
+      case 'Tuesday':
+        return 'Martes';
+      case 'Wednesday':
+        return 'Miércoles';
+      case 'Thursday':
+        return 'Jueves';
+      case 'Friday':
+        return 'Viernes';
+      case 'Saturday':
+        return 'Sabado';
+      case 'Sunday':
+        return 'Domingo';
+      default:
+        return date;
+    }
+  };
+  // funcion para pasar data viento a string
+  const direccionViento = (degree) => {
+    switch (true) {
+      case degree > 337.5:
+        return 'N';
+      case degree > 292.5:
+        return 'NO';
+      case degree > 247.5:
+        return 'O';
+      case degree > 202.5:
+        return 'SO';
+      case degree > 157.5:
+        return 'S';
+      case degree > 122.5:
+        return 'SE';
+      case degree > 67.5:
+        return 'E';
+      case degree > 22.5:
+        return 'N';
+      default:
+        return 'N';
+    }
+  };
+  // funcion para devolver link src con data icon
+  const weatherImage = (weatherIconData) => `img/${weatherIconData}.png`;
+
   try {
-    // def elementos DOM MAIN
-    const cityName = document.querySelector('#cityName');
-    const weatherStatusMain = document.querySelector('#weatherStatusMain');
-    const temperaturaMain = document.querySelector('#temperaturaMain');
-    const tempMaxMinMain = document.querySelector('#tempMaxMinMain');
-    const temperaturaMainIcon = document.querySelector('#temperaturaMainIcon');
-    const mainDesc = document.querySelector('#mainDesc');
-    const error = document.querySelector('#error');
-    const footer = document.querySelector('#footer');
-    const cargando = document.querySelector('#cargando');
-    const opacoWrap = document.querySelector('#opacoWrap');
-
-    // def elementos DOM 24hrs
-    const hour0Time = document.querySelector('#hour0Time');
-    const hour0pop = document.querySelector('#hour0pop');
-    const hour0Weather = document.querySelector('#hour0Weather');
-    const hour0Temp = document.querySelector('#hour0Temp');
-
-    const hour1Time = document.querySelector('#hour1Time');
-    const hour1pop = document.querySelector('#hour1pop');
-    const hour1Weather = document.querySelector('#hour1Weather');
-    const hour1Temp = document.querySelector('#hour1Temp');
-
-    const hour2Time = document.querySelector('#hour2Time');
-    const hour2pop = document.querySelector('#hour2pop');
-    const hour2Weather = document.querySelector('#hour2Weather');
-    const hour2Temp = document.querySelector('#hour2Temp');
-
-    const hour3Time = document.querySelector('#hour3Time');
-    const hour3pop = document.querySelector('#hour3pop');
-    const hour3Weather = document.querySelector('#hour3Weather');
-    const hour3Temp = document.querySelector('#hour3Temp');
-
-    const hour4Time = document.querySelector('#hour4Time');
-    const hour4pop = document.querySelector('#hour4pop');
-    const hour4Weather = document.querySelector('#hour4Weather');
-    const hour4Temp = document.querySelector('#hour4Temp');
-
-    const hour5Time = document.querySelector('#hour5Time');
-    const hour5pop = document.querySelector('#hour5pop');
-    const hour5Weather = document.querySelector('#hour5Weather');
-    const hour5Temp = document.querySelector('#hour5Temp');
-
-    const hour6Time = document.querySelector('#hour6Time');
-    const hour6pop = document.querySelector('#hour6pop');
-    const hour6Weather = document.querySelector('#hour6Weather');
-    const hour6Temp = document.querySelector('#hour6Temp');
-
-    const hour7Time = document.querySelector('#hour7Time');
-    const hour7pop = document.querySelector('#hour7pop');
-    const hour7Weather = document.querySelector('#hour7Weather');
-    const hour7Temp = document.querySelector('#hour7Temp');
-
-    const hour8Time = document.querySelector('#hour8Time');
-    const hour8pop = document.querySelector('#hour8pop');
-    const hour8Weather = document.querySelector('#hour8Weather');
-    const hour8Temp = document.querySelector('#hour8Temp');
-
-    const hour9Time = document.querySelector('#hour9Time');
-    const hour9pop = document.querySelector('#hour9pop');
-    const hour9Weather = document.querySelector('#hour9Weather');
-    const hour9Temp = document.querySelector('#hour9Temp');
-
-    const hour10Time = document.querySelector('#hour10Time');
-    const hour10pop = document.querySelector('#hour10pop');
-    const hour10Weather = document.querySelector('#hour10Weather');
-    const hour10Temp = document.querySelector('#hour10Temp');
-
-    const hour11Time = document.querySelector('#hour11Time');
-    const hour11pop = document.querySelector('#hour11pop');
-    const hour11Weather = document.querySelector('#hour11Weather');
-    const hour11Temp = document.querySelector('#hour11Temp');
-
-    const hour12Time = document.querySelector('#hour12Time');
-    const hour12pop = document.querySelector('#hour12pop');
-    const hour12Weather = document.querySelector('#hour12Weather');
-    const hour12Temp = document.querySelector('#hour12Temp');
-
-    const hour13Time = document.querySelector('#hour13Time');
-    const hour13pop = document.querySelector('#hour13pop');
-    const hour13Weather = document.querySelector('#hour13Weather');
-    const hour13Temp = document.querySelector('#hour13Temp');
-
-    const hour14Time = document.querySelector('#hour14Time');
-    const hour14pop = document.querySelector('#hour14pop');
-    const hour14Weather = document.querySelector('#hour14Weather');
-    const hour14Temp = document.querySelector('#hour14Temp');
-
-    const hour15Time = document.querySelector('#hour15Time');
-    const hour15pop = document.querySelector('#hour15pop');
-    const hour15Weather = document.querySelector('#hour15Weather');
-    const hour15Temp = document.querySelector('#hour15Temp');
-
-    const hour16Time = document.querySelector('#hour16Time');
-    const hour16pop = document.querySelector('#hour16pop');
-    const hour16Weather = document.querySelector('#hour16Weather');
-    const hour16Temp = document.querySelector('#hour16Temp');
-
-    const hour17Time = document.querySelector('#hour17Time');
-    const hour17pop = document.querySelector('#hour17pop');
-    const hour17Weather = document.querySelector('#hour17Weather');
-    const hour17Temp = document.querySelector('#hour17Temp');
-
-    const hour18Time = document.querySelector('#hour18Time');
-    const hour18pop = document.querySelector('#hour18pop');
-    const hour18Weather = document.querySelector('#hour18Weather');
-    const hour18Temp = document.querySelector('#hour18Temp');
-
-    const hour19Time = document.querySelector('#hour19Time');
-    const hour19pop = document.querySelector('#hour19pop');
-    const hour19Weather = document.querySelector('#hour19Weather');
-    const hour19Temp = document.querySelector('#hour19Temp');
-
-    const hour20Time = document.querySelector('#hour20Time');
-    const hour20pop = document.querySelector('#hour20pop');
-    const hour20Weather = document.querySelector('#hour20Weather');
-    const hour20Temp = document.querySelector('#hour20Temp');
-
-    const hour21Time = document.querySelector('#hour21Time');
-    const hour21pop = document.querySelector('#hour21pop');
-    const hour21Weather = document.querySelector('#hour21Weather');
-    const hour21Temp = document.querySelector('#hour21Temp');
-
-    const hour22Time = document.querySelector('#hour22Time');
-    const hour22pop = document.querySelector('#hour22pop');
-    const hour22Weather = document.querySelector('#hour22Weather');
-    const hour22Temp = document.querySelector('#hour22Temp');
-
-    const hour23Time = document.querySelector('#hour23Time');
-    const hour23pop = document.querySelector('#hour23pop');
-    const hour23Weather = document.querySelector('#hour23Weather');
-    const hour23Temp = document.querySelector('#hour23Temp');
-
-    const hour24Time = document.querySelector('#hour24Time');
-    const hour24pop = document.querySelector('#hour24pop');
-    const hour24Weather = document.querySelector('#hour24Weather');
-    const hour24Temp = document.querySelector('#hour24Temp');
-    // def elementos DOM allDayInfo
-    const allDayInfo = document.querySelector('#allDayInfo');
-    const dayInfoAmanecerData = document.querySelector('#dayInfoAmanecerData');
-    const dayInfoAtardecerData = document.querySelector('#dayInfoAtardecerData');
-    const dayInfoPopData = document.querySelector('#dayInfoPopData');
-    const dayInfoHumedadData = document.querySelector('#dayInfoHumedadData');
-    const dayInfoVientoData = document.querySelector('#dayInfoVientoData');
-    const dayInfoStData = document.querySelector('#dayInfoStData');
-    const dayInfoPrecipData = document.querySelector('#dayInfoPrecipData');
-    const dayInfoPresionData = document.querySelector('#dayInfoPresionData');
-    const dayInfoVisibilidadData = document.querySelector('#dayInfoVisibilidadData');
-    const dayInfoIndUvData = document.querySelector('#dayInfoIndUvData');
-    // def elementos DOM allWeekInfo
-    const allWeekInfo = document.querySelector('#allWeekInfo');
-    const weekDay0Name = document.querySelector('#weekDay0Name');
-    const weekDay0Icon = document.querySelector('#weekDay0Icon');
-    const weekDay0Pop = document.querySelector('#weekDay0Pop');
-    const weekDay0Hum = document.querySelector('#weekDay0Hum');
-    const weekDay0Temp = document.querySelector('#weekDay0Temp');
-
-    const weekDay1Name = document.querySelector('#weekDay1Name');
-    const weekDay1Icon = document.querySelector('#weekDay1Icon');
-    const weekDay1Pop = document.querySelector('#weekDay1Pop');
-    const weekDay1Hum = document.querySelector('#weekDay1Hum');
-    const weekDay1Temp = document.querySelector('#weekDay1Temp');
-
-    const weekDay2Name = document.querySelector('#weekDay2Name');
-    const weekDay2Icon = document.querySelector('#weekDay2Icon');
-    const weekDay2Pop = document.querySelector('#weekDay2Pop');
-    const weekDay2Hum = document.querySelector('#weekDay2Hum');
-    const weekDay2Temp = document.querySelector('#weekDay2Temp');
-
-    const weekDay3Name = document.querySelector('#weekDay3Name');
-    const weekDay3Icon = document.querySelector('#weekDay3Icon');
-    const weekDay3Pop = document.querySelector('#weekDay3Pop');
-    const weekDay3Hum = document.querySelector('#weekDay3Hum');
-    const weekDay3Temp = document.querySelector('#weekDay3Temp');
-
-    const weekDay4Name = document.querySelector('#weekDay4Name');
-    const weekDay4Icon = document.querySelector('#weekDay4Icon');
-    const weekDay4Pop = document.querySelector('#weekDay4Pop');
-    const weekDay4Hum = document.querySelector('#weekDay4Hum');
-    const weekDay4Temp = document.querySelector('#weekDay4Temp');
-
-    const weekDay5Name = document.querySelector('#weekDay5Name');
-    const weekDay5Icon = document.querySelector('#weekDay5Icon');
-    const weekDay5Pop = document.querySelector('#weekDay5Pop');
-    const weekDay5Hum = document.querySelector('#weekDay5Hum');
-    const weekDay5Temp = document.querySelector('#weekDay5Temp');
-
-    const weekDay6Name = document.querySelector('#weekDay6Name');
-    const weekDay6Icon = document.querySelector('#weekDay6Icon');
-    const weekDay6Pop = document.querySelector('#weekDay6Pop');
-    const weekDay6Hum = document.querySelector('#weekDay6Hum');
-    const weekDay6Temp = document.querySelector('#weekDay6Temp');
     // ejecucion de solicitud de datos
     // muestra animacion cargar;
     cargando.style.display = 'block';
@@ -206,82 +288,6 @@ const weather = async (city) => {
     const getMoreData = await getMoreWeather.json();
     // si todo ok, se borra error
     error.style.visibility = 'hidden';
-
-    // funcion para devolver 0 si no hay data de precipitacion
-    const precipitacion = (data) => {
-      let precipitacionData = data;
-      if (precipitacionData === undefined) {
-        precipitacionData = 0;
-      }
-      return precipitacionData;
-    };
-    // funcion para traducir main weather data
-    const traducirMain = (data) => {
-      switch (data) {
-        case 'Drizzle':
-          return 'Llovizna';
-        case 'Clear':
-          return 'Despejado';
-        case 'Rain':
-          return 'Lluvia';
-        case 'Clouds':
-          return 'Nublado';
-        case 'Mist':
-          return 'Niebla';
-        case 'Thunderstorm':
-          return 'Tormenta';
-        case 'Snow':
-          return 'Nieve';
-        default:
-          return data;
-      }
-    };
-    // funcion para traducir dias
-    const traducirDia = (date) => {
-      switch (date) {
-        case 'Monday':
-          return 'Lunes';
-        case 'Tuesday':
-          return 'Martes';
-        case 'Wednesday':
-          return 'Miércoles';
-        case 'Thursday':
-          return 'Jueves';
-        case 'Friday':
-          return 'Viernes';
-        case 'Saturday':
-          return 'Sabado';
-        case 'Sunday':
-          return 'Domingo';
-        default:
-          return date;
-      }
-    };
-    // funcion para pasar data viento a string
-    const direccionViento = (degree) => {
-      switch (true) {
-        case degree > 337.5:
-          return 'N';
-        case degree > 292.5:
-          return 'NO';
-        case degree > 247.5:
-          return 'O';
-        case degree > 202.5:
-          return 'SO';
-        case degree > 157.5:
-          return 'S';
-        case degree > 122.5:
-          return 'SE';
-        case degree > 67.5:
-          return 'E';
-        case degree > 22.5:
-          return 'N';
-        default:
-          return 'N';
-      }
-    };
-    // funcion para devolver link src con data icon
-    const weatherImage = (weatherIconData) => `img/${weatherIconData}.png`;
 
     // una vez cargados los datos, muestra la grid allDayInfo
     allDayInfo.style.display = 'grid';
@@ -500,14 +506,13 @@ const weather = async (city) => {
     cargando.style.display = 'none';
     opacoWrap.style.opacity = '1';
   } catch {
-    const error = document.querySelector('#error');
     error.style.visibility = 'visible';
-    const cargando = document.querySelector('#cargando');
-    const opacoWrap = document.querySelector('#opacoWrap');
     cargando.style.display = 'none';
     opacoWrap.style.opacity = '1';
   }
 };
+
+// addEventListeners para ejecutar funcion
 const buscar = document.querySelector('#buscar');
 const city = document.querySelector('#city');
 const github = document.querySelector('#github');
@@ -530,4 +535,4 @@ document.addEventListener('keydown', (key) => {
   }
 });
 
-weather('buenos+aires');
+buscar.click();
