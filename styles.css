@@ -222,7 +222,7 @@ html, body {
 }
 
 #footer {
-    height: auto;
+    height: 7vh;
     display: none;
     background-color:#48484a;
     justify-content: center;
