@@ -206,10 +206,6 @@ const weather = async (city) => {
     const getMoreData = await getMoreWeather.json();
     // si todo ok, se borra error
     error.style.visibility = 'hidden';
-    // una vez cargados datos, se borra animacion cargar
-
-    cargando.style.display = 'none';
-    opacoWrap.style.opacity = '1';
 
     // funcion para devolver 0 si no hay data de precipitacion
     const precipitacion = (data) => {
@@ -498,6 +494,11 @@ const weather = async (city) => {
     weekDay6Pop.textContent = `${Math.round(getMoreData.daily[7].pop * 100)}%`;
     weekDay6Hum.textContent = `${getMoreData.daily[7].humidity}%`;
     weekDay6Temp.textContent = `${Math.round(getMoreData.daily[7].temp.max)}° | ${Math.round(getMoreData.daily[7].temp.min)}°`;
+
+    // una vez cargados datos, se borra animacion cargar
+
+    cargando.style.display = 'none';
+    opacoWrap.style.opacity = '1';
   } catch {
     const error = document.querySelector('#error');
     error.style.visibility = 'visible';
