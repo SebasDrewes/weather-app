@@ -1,4 +1,4 @@
-const weather = async (city) => {/*
+const weather = async (city) => {
   try {
     // def elementos DOM MAIN
     const cityName = document.querySelector('#cityName');
@@ -10,6 +10,7 @@ const weather = async (city) => {/*
     const error = document.querySelector('#error');
     const footer = document.querySelector('#footer');
     const cargando = document.querySelector('#cargando');
+    const opacoWrap = document.querySelector('#opacoWrap');
 
     // def elementos DOM 24hrs
     const hour0Time = document.querySelector('#hour0Time');
@@ -192,6 +193,10 @@ const weather = async (city) => {/*
     const weekDay6Hum = document.querySelector('#weekDay6Hum');
     const weekDay6Temp = document.querySelector('#weekDay6Temp');
     // ejecucion de solicitud de datos
+    // muestra animacion cargar;
+    cargando.style.display = 'block';
+    opacoWrap.style.opacity = '0.5';
+
     const getWeather = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=es&APPID=e6d7d470999d1a5432119e29077faf4d`, { mode: 'cors' });
     const getData = await getWeather.json();
     // datos necesarios para segundo fetch
@@ -202,7 +207,10 @@ const weather = async (city) => {/*
     // si todo ok, se borra error
     error.style.visibility = 'hidden';
     // una vez cargados datos, se borra animacion cargar
+
     cargando.style.display = 'none';
+    opacoWrap.style.opacity = '1';
+
     // funcion para devolver 0 si no hay data de precipitacion
     const precipitacion = (data) => {
       let precipitacionData = data;

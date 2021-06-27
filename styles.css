@@ -11,15 +11,23 @@ html, body {
     box-sizing: content-box;
     background-color: white;
 }
+#opacoWrap {
+    opacity : 1;
+}
 #containerLoading {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 #cargando {
-    position: absolute;
     animation-name: loading;
     animation-duration: 2s;
+    opacity : 1;
     animation-iteration-count: infinite;
 }
 #logo {
