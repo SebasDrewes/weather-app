@@ -1,4 +1,4 @@
-const weather = async (city) => {
+const weather = async (city) => {/*
   try {
     // def elementos DOM MAIN
     const cityName = document.querySelector('#cityName');

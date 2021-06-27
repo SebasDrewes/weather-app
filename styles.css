@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@keyframes loading {
+    0% {transform: rotate(-360deg)};
+    100% {transform: rotate(-360deg)};
+}
 
 html, body {
     min-height: 100%;
@@ -7,12 +11,16 @@ html, body {
     box-sizing: content-box;
     background-color: white;
 }
+#containerLoading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #cargando {
     position: absolute;
-    display: block;
-    top: 25%;
-    left: 50%;
-    transform: translate(-25%, -50%);
+    animation-name: loading;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
 }
 #logo {
     width: 100px;
@@ -282,5 +290,8 @@ html, body {
     }
     .hum {
         display:none !important;
+    }
+    #containerLoading {
+        align-items: flex-end;
     }
 }
