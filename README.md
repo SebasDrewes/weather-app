@@ -1,5 +1,4 @@
 # weather-app
-![image](https://user-images.githubusercontent.com/81722772/123556980-a206fb00-d764-11eb-9567-8e4ce29ef7e8.png)
 
 Weather App realizada con vanilla Javascript y CSS, consumiendo la API de OpenWeather.org.
 
